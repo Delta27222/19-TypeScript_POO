@@ -20,7 +20,7 @@ export class MyDate{
     if (value < 10) {
       return `0${value}`;
     }
-    return`0${value}`;
+    return`${value}`;
   }
   add(amount: number, type: 'days' | 'months' | 'year') {
     switch (type) {
