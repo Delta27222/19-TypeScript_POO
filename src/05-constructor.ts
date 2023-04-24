@@ -1,0 +1,50 @@
+export class MyDate{
+
+  constructor(
+    private year: number = 2000,    //Si por alguna razon no me mandan los valores, se le colocan los valores por defecto indicados
+    private month: number = 3,
+    public day: number = 28
+  ){}
+
+  //Agregando los comportamientos
+  printFormat(): string {
+    const day = this.addPadding(this.day);
+    const month = this.addPadding(this.month);
+    return `${day}/${month}/${this.year}`;
+  }
+
+  private addPadding(value: number) {
+    if (value < 10) {
+      return `0${value}`;
+    }
+    return`${value}`;
+  }
+  add(amount: number, type: 'days' | 'months' | 'year') {
+    switch (type) {
+      case 'days':
+        this.day += amount;
+        break;
+        case 'months':
+        this.month += amount;
+        break;
+        case 'year':
+        this.year += amount;
+        break;
+    }
+  }
+  getDay() {    //De esta manera podremos ver el valor de una variable que esta private
+    return this.day;
+  }
+}
+
+//Instancia de MyDate, pero con parametros
+const myDate = new MyDate(2023,4,24);
+console.log('(2023,4,24) => ' + myDate.printFormat());
+
+//Instancia de MyDate, sin parametros
+const myDate2 = new MyDate();
+console.log('() => ' + myDate2.printFormat());
+
+//Instancia de MyDate, con un solo parametro
+const myDate3 = new MyDate(2040);
+console.log('(2040) => ' + myDate3.printFormat());
