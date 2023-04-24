@@ -3,14 +3,14 @@ export class MyDate{
   constructor(
     public year: number = 2000,    //Si por alguna razon no me mandan los valores, se le colocan los valores por defecto indicados
     public month: number = 3,
-    private day: number = 28
+    private _day: number = 28
   ){}
 
   //Agregando los comportamientos
   printFormat(): string {
-    const day = this.addPadding(this.day);
+    const _day = this.addPadding(this._day);
     const month = this.addPadding(this.month);
-    return `${day}/${month}/${this.year}`;
+    return `${_day}/${month}/${this.year}`;
   }
 
   private addPadding(value: number) {
@@ -22,7 +22,7 @@ export class MyDate{
   add(amount: number, type: 'days' | 'months' | 'year') {
     switch (type) {
       case 'days':
-        this.day += amount;
+        this._day += amount;
         break;
         case 'months':
         this.month += amount;
@@ -32,8 +32,8 @@ export class MyDate{
         break;
     }
   }
-  getDay() {    //De esta manera podremos ver el valor de una variable que esta private
-    return this.day;
+  get_Day() {    //De esta manera podremos ver el valor de una variable que esta private
+    return this._day;
   }
 }
 
