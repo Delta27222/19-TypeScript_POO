@@ -1,5 +1,6 @@
-export class Animal {
-  protected name: string;               //Si el valor esta protected, solo se podra acceder dentro de las calses hijas
+export abstract class Animal {    //Colocando esta clase como Abstract, lo que hacemos es que no se puedan
+  protected name: string;         //directamente de Animal, sino que tenemos que usar una clase hija para
+                                   //poder usarla.
 
   constructor(name: string){
     this.name = name;
@@ -18,7 +19,7 @@ export class Animal {
     return `Bye...`
   }
   protected doSomething() {
-    console.log('I am doing something');    //Si el valor esta protected, solo se podra acceder dentro de las calses hijas
+    console.log('I am doing something');
   }
 }
 
@@ -33,14 +34,15 @@ export class Dog extends Animal{
     for (let index = 0; index < time; index++) {
       console.log(`Woof ${this.name}`);
     }
-    super.doSomething();               //Es por esto que se esta haciendo uso aca, y no donde se hace la instancia
+    super.doSomething();
   }
   move(time: number) {
     console.log('Moving as a dog..');
     super.move(time);
   }
 }
-const roma = new Dog('Roma', 'Joely');
-roma.makeSound(1);
-roma.move(3);                        //Error -> Property 'name' is protected and only accessible within class 'Animal' and its subclasses.
-console.log(roma.bye());
+
+//Si aca dejamos la creacion y muestra de algo en consola,
+//donde llamemaos a estas clases automaticamente se mostrara
+//lo que aca aparecia...VER commit anterior en este archivo
+//para ver como se hacia antes de usar ABSTRACT
