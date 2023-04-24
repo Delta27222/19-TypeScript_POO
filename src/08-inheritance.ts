@@ -43,5 +43,5 @@ console.log('Name -> ' + roma.name);
 console.log('Owner -> ' + roma.owner);
 console.log(roma.gretting());
 roma.move(5);
-console.log(roma.makeSound(2));
+roma.makeSound(2);
 console.log(roma.bye());
