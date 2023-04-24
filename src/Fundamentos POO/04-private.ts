@@ -1,19 +1,19 @@
 export class MyDate{
-  private year: number;
-  private month: number;
-  private day: number;
+  private _year: number;
+  private _month: number;
+  private _day: number;
 
-  constructor(year: number, month: number, day: number){
-    this.year = year;
-    this.month = month;
-    this.day = day;
+  constructor(_year: number, _month: number, _day: number){
+    this._year = _year;
+    this._month = _month;
+    this._day = _day;
   }
 
   //Agregando los comportamientos
   printFormat(): string {   //Aca indicamos que es lo que vamos a retornar
-    const day = this.addPadding(this.day);
-    const month = this.addPadding(this.month);
-    return `${day}/${month}/${this.year}`;
+    const _day = this.addPadding(this._day);
+    const _month = this.addPadding(this._month);
+    return `${_day}/${_month}/${this._year}`;
   }
 
   private addPadding(value: number) {   //No es necesario tenerlo como publico
@@ -25,21 +25,21 @@ export class MyDate{
   add(amount: number, type: 'days' | 'months' | 'year') {
     switch (type) {
       case 'days':
-        this.day += amount;
+        this._day += amount;
         break;
         case 'months':
-        this.month += amount;
+        this._month += amount;
         break;
         case 'year':
-        this.year += amount;
+        this._year += amount;
         break;
     }
   }
-  getDay() {    //De esta manera podremos ver el valor de una variable que esta private
-    return this.day;
+  get_Day() {    //De esta manera podremos ver el valor de una variable que esta private
+    return this._day;
   }
 }
 
 const myDate = new MyDate(2000,3,1);
 console.log(myDate.printFormat());
-console.log(myDate.getDay());
+console.log(myDate.get_Day());
