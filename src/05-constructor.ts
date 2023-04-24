@@ -1,9 +1,9 @@
 export class MyDate{
 
   constructor(
-    private year: number = 2000,    //Si por alguna razon no me mandan los valores, se le colocan los valores por defecto indicados
-    private month: number = 3,
-    public day: number = 28
+    public year: number = 2000,    //Si por alguna razon no me mandan los valores, se le colocan los valores por defecto indicados
+    public month: number = 3,
+    private day: number = 28
   ){}
 
   //Agregando los comportamientos
