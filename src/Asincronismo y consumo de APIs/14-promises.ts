@@ -9,15 +9,3 @@ import axios from "axios";
   const products = await getProducts();
   console.log(products);
 })();
-
-//Promesa con delay - explicacion
-// function delay(time: number) {
-//   const promise = new Promise<Boolean>((resolve) => {
-//     setTimeout(() => {
-//       resolve(true);
-//     }, time);
-//   })
-//   return promise;
-// }
-// const rta = await delay(3000);
-// console.log(rta);
