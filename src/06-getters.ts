@@ -1,19 +1,19 @@
 export class MyDate{
-  private year: number;
-  private month: number;
+  private _year: number;
+  private _month: number;
   private _day: number;
 
-  constructor(year: number, month: number, _day: number){
-    this.year = year;
-    this.month = month;
+  constructor(_year: number, _month: number, _day: number){
+    this._year = _year;
+    this._month = _month;
     this._day = _day;
   }
 
   //Agregando los comportamientos
   printFormat(): string {
     const _day = this.addPadding(this._day);
-    const month = this.addPadding(this.month);
-    return `${_day}/${month}/${this.year}`;
+    const _month = this.addPadding(this._month);
+    return `${_day}/${_month}/${this._year}`;
   }
 
   private addPadding(value: number) {
@@ -28,10 +28,10 @@ export class MyDate{
         this._day += amount;
         break;
         case 'months':
-        this.month += amount;
+        this._month += amount;
         break;
         case 'year':
-        this.year += amount;
+        this._year += amount;
         break;
     }
   }
@@ -39,14 +39,14 @@ export class MyDate{
     //more code
     return this._day;
   }
-  get isLeapYear(): boolean {   //Siempre los get tienen que retornar un valor, esa es la definicion de un getter
-    if (this.year % 400 === 0) return true;
-    if (this.year % 100 === 0) return false;
-    return this.year % 4 === 0;
+  get isLeap_Year(): boolean {   //Siempre los get tienen que retornar un valor, esa es la definicion de un getter
+    if (this._year % 400 === 0) return true;
+    if (this._year % 100 === 0) return false;
+    return this._year % 4 === 0;
   }
 }
 
 const myDate = new MyDate(2004,3,1);
 console.log(myDate.printFormat());
 console.log(myDate.day);
-console.log(myDate.isLeapYear);
+console.log(myDate.isLeap_Year);
