@@ -22,9 +22,9 @@ export class MyDate{
     }
     return`0${value}`;
   }
-  add(amount: number, type: '_days' | 'months' | 'year') {
+  add(amount: number, type: 'days' | 'months' | 'year') {
     switch (type) {
-      case '_days':
+      case 'days':
         this._day += amount;
         break;
         case 'months':
