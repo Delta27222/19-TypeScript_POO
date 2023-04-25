@@ -24,7 +24,7 @@ export class ProductMemoryService implements ProductService {
     this.products.push(product);
     return product;
   }
-  update(id: Product['id'], changes: UpdateProductDto ): Product {
+  update(id: Product['id'], changes: UpdateProductDto ) : Product{
     const index = this.products.findIndex(item => item.id === id);
     const prevData = this.products[index];
     this.products[index] = {
@@ -33,7 +33,7 @@ export class ProductMemoryService implements ProductService {
     }
     return this.products[index];
   }
-  findOne(id: Product['id']) {
+  findOne(id: Product['id']){
     return this.products.find(item => item.id === id);
   }
   getAllProducts() {

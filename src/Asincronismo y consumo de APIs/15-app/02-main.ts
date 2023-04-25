@@ -10,11 +10,11 @@ const newProduct = productService.create({
   categoryId: 1,
   images: ['https://picsum.photos/200/300']
 });
-const products = productService.getAll();
-console.log(productService.getAll());
+const products = productService.getAllProducts();
+console.log(productService.getAllProducts());
 
 const productId = products[0].id;
-productService.updateProduct(productId, {
+productService.update(productId, {
   title: 'Nombre nuevo'
 });
 
